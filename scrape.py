@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import pprint
 
+
 res = requests.get('https://news.ycombinator.com/news')
 res2 = requests.get('https://news.ycombinator.com/news?p=2')
 
@@ -9,7 +10,7 @@ soup = BeautifulSoup(res.text, 'html.parser')
 links = soup.select('.titleline > a')
 subtext= soup.select('.subtext')
 
-soup2 = BeautifulSoup(res.text, 'html.parser')
+soup2 = BeautifulSoup(res2.text, 'html.parser')
 links2 = soup2.select('.titleline > a')
 subtext2= soup2.select('.subtext')
 
