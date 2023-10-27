@@ -3,6 +3,38 @@ from bs4 import BeautifulSoup
 import pprint
 
 
+plist = []
+res_list = []
+
+def scrape_page(i):
+    
+    if i == 1:
+        res = requests.get('https://news.ycombinator.com/news')
+    else:
+        res = requests.get(f'https://news.ycombinator.com/news?p={i}') 
+
+
+
+
+#input num pages in terminal
+page_num = input('How many pages? ')
+#preconstruct urls
+for i in range(int(page_num)):
+    scrape_page(i + 1)
+#     if i == 0:
+#         plist.append('https://news.ycombinator.com/news')
+#     else:
+#         plist.append(f'https://news.ycombinator.com/news?p={i + 1 }')
+#request urls
+for item in plist:
+    res_list.append(requests.get(item))
+
+print(res_list[0].text)
+#combine page data
+
+#print page data
+
+exit()
 res = requests.get('https://news.ycombinator.com/news')
 res2 = requests.get('https://news.ycombinator.com/news?p=2')
 
